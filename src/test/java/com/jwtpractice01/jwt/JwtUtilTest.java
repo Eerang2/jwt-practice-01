@@ -20,5 +20,9 @@ public class JwtUtilTest extends BaseTest {
     @Test
     void 토큰에서_회원번호_꺼내보기() {
         String accessToken = jwtUtil.generateAccessToken(new LoginUser(7L, "jinwoo"));
+        LoginUser loginUser = jwtUtil.getLoginUserFromAccessToken(accessToken);
+        Assertions.assertEquals(7L, loginUser.getUserNo());
     }
+
+
 }
